@@ -1,25 +1,52 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { AddTransaction } from './Components/AddTransaction';
+import { Balance } from './Components/Balance';
+import { Header } from './Components/Header';
+import { History } from './Components/History';
+import { IncomeExpense } from './Components/IncomeExpense';
+import { IncomeExpenseChart } from './Components/IncomeExpenseChart';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import {TransContext} from './Context/TransContext'
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  paper: {
+    minHeight: '100vh',
+    minWidth: 100,
+  },
+  pad:{
+    padding:'20px 30px'
+  }
+}));
 
 function App() {
+  const classes=useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid container className={classes.root}>
+    <Grid item xs={12}>
+      <Grid container justify="center">
+          <Grid item>
+            <Paper className={classes.paper}>
+              <div className={classes.pad}>
+                <TransContext>
+                  <Header></Header>
+                  <Balance></Balance>
+                  <IncomeExpense></IncomeExpense>
+                  <IncomeExpenseChart></IncomeExpenseChart>
+                  <History></History>
+                  <AddTransaction></AddTransaction>
+                </TransContext>
+              </div>
+              </Paper>
+            </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 }
 
