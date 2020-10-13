@@ -1,5 +1,7 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Click here to open this project [expense-tracker-app](https://expensetrackerapp-11051.web.app/)
+
 ## Available Scripts
 
 In the project directory, you can run:
